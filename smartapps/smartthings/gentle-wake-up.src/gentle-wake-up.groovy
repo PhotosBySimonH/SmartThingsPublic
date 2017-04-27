@@ -570,6 +570,7 @@ def updateDimmers(percentComplete) {
 				dimmer.setColor([hue: hue, saturation: 100, level: nextLevel])
 			} else if (hasSetLevelCommand(dimmer)) {
 				log.debug "Setting ${deviceLabel(dimmer)} level to ${nextLevel}"
+				dimmer.setColorTemperature(6000)
 				dimmer.setLevel(nextLevel)
 			} else {
 				log.warn "${deviceLabel(dimmer)} does not have setColor or setLevel commands."
